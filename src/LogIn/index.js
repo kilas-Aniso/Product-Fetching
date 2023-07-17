@@ -40,7 +40,7 @@ const Login = ()=>{
         <div>
           <form className="form" onSubmit={handleSubmit}> 
             <h1>Login</h1>
-            <input placeholder="Enter username" type="text" required
+            <input id="hi" placeholder="Enter username" type="text" required
             onChange={(e) =>{setUsername(e.target.value)}}
             />
             <br/>

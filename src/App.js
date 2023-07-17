@@ -2,7 +2,6 @@ import { Routes, Route, BrowserRouter,} from 'react-router-dom';
 // import './App.css';
 import Login from './LogIn';
 import Products from './Products';
-import ProductDetails from './ProductDetails';
 import AddProduct from "./AddProduct";
 
 function App() {

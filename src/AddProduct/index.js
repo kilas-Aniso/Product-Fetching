@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 
-const AddProduct = ({ handleNewProduct }) => {
+const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [discountPercentage, setDiscountPercentage] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,16 +18,23 @@ const AddProduct = ({ handleNewProduct }) => {
       title,
       price,
       discountPercentage,
-      thumbnail: "https://dummyimage.com/200x200",
+      thumbnail: image ? URL.createObjectURL(image) : "https://dummyimage.com/200x200",
     };
 
-    handleNewProduct(newProduct);
+    // Extract query parameters from the current URL
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set("name", title);
+    queryParams.set("price", price);
+    queryParams.set("discount", discountPercentage);
+    queryParams.set("image", newProduct.thumbnail);
 
-    setTitle("");
-    setPrice("");
-    setDiscountPercentage("");
+    // Update the URL with the query parameters
+    navigate(`/products?${queryParams.toString()}`);
+  };
 
-    navigate("/products");
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   return (
@@ -61,6 +70,11 @@ const AddProduct = ({ handleNewProduct }) => {
               value={discountPercentage}
               onChange={(e) => setDiscountPercentage(e.target.value)}
             />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="image">Image:</label>
+            <input type="file" id="image" onChange={handleImageChange} />
           </div>
 
           <button type="submit">Add</button>
