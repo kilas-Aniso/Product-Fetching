@@ -39,14 +39,14 @@ const Products = () => {
     return <h2>Loading...</h2>;
   }
 
-  // Extract new product details from query parameters
+  
   const queryParams = new URLSearchParams(location.search);
   const newProductName = queryParams.get("name");
   const newProductPrice = queryParams.get("price");
   const newProductDiscount = queryParams.get("discount");
   const newProductImage = queryParams.get("image");
 
-  // Create a new product object with the extracted details
+
   const newProduct = {
     id: Date.now(),
     title: newProductName,
@@ -55,10 +55,9 @@ const Products = () => {
     thumbnail: newProductImage,
   };
 
-  // Add the new product to the beginning of the products array
   const updatedProducts = [newProduct, ...products];
 
-  // Save the updated products to local storage
+ 
   saveProductsToStorage(updatedProducts);
 
   return (

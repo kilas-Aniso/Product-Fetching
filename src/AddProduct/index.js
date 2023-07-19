@@ -21,14 +21,14 @@ const AddProduct = () => {
       thumbnail: image ? URL.createObjectURL(image) : "https://dummyimage.com/200x200",
     };
 
-    // Extract query parameters from the current URL
+    
     const queryParams = new URLSearchParams(location.search);
     queryParams.set("name", title);
     queryParams.set("price", price);
     queryParams.set("discount", discountPercentage);
     queryParams.set("image", newProduct.thumbnail);
 
-    // Update the URL with the query parameters
+   
     navigate(`/products?${queryParams.toString()}`);
   };
 
