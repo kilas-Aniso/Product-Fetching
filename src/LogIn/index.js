@@ -39,8 +39,8 @@ const Login = ()=>{
     return(
         <div>
           <form className="form" onSubmit={handleSubmit}> 
-            <h1>Login</h1>
-            <input id="hi" placeholder="Enter username" type="text" required
+            <h1 >Login</h1>
+            <input id="username" placeholder="Enter username" type="text" required
             onChange={(e) =>{setUsername(e.target.value)}}
             />
             <br/>

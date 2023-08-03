@@ -1,20 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
+
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item">
-          <Link to="/login" className="navbar-link">
-            Log In
-          </Link>
+      <ul>
+      <li>
+          <a href="/">
+            <img
+              src={process.env.PUBLIC_URL + '/images/AkiraPhone.png'}
+              alt="Logo"
+              className="logo-image"
+            />
+          </a>
         </li>
-        <li className="navbar-item">
-          <Link to="/products" className="navbar-link">
-            Products
-          </Link>
+        <li >
+         <a href="/">  LogIn</a> 
+        </li>
+        <li>
+          <a href="/Products"> Products</a> 
+        </li>
+        <li>
+          <a href="/add-product"> AddProduct</a> 
         </li>
       </ul>
     </nav>

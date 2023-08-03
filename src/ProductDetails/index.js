@@ -29,9 +29,9 @@ const ProductDetails = () => {
         <h3>{product.title}</h3>
         <p>{product.description}</p>
         <p>Brand: {product.brand}</p>
-        <p> Price: {product.price}</p>
-        <p> Ratings: {product.rating}</p>
-        <p>Discount: {product.discountPercentage}</p>
+        <p> Category: {product.Category}</p>
+        <p> Ratings: {product.ratings}</p>
+        <p>description: {product.description}</p>
       </div>
     </div>
   );

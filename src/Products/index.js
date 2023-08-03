@@ -12,24 +12,25 @@ const Products = () => {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    const storedProducts = JSON.parse(localStorage.getItem("products"));
-    if (storedProducts) {
-      setProducts(storedProducts);
-    }
-  }, []);
-
   const getProducts = async () => {
     try {
       setLoading(true);
       const response = await fetch("https://dummyjson.com/products");
       const result = await response.json();
       setProducts(result.products);
+      saveProductsToStorage(result.products);
       setLoading(false);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    const storedProducts = JSON.parse(localStorage.getItem("products"));
+    if (storedProducts) {
+      setProducts(storedProducts);
+    }
+  }, []);
 
   const saveProductsToStorage = (updatedProducts) => {
     localStorage.setItem("products", JSON.stringify(updatedProducts));
@@ -39,13 +40,11 @@ const Products = () => {
     return <h2>Loading...</h2>;
   }
 
-  
   const queryParams = new URLSearchParams(location.search);
   const newProductName = queryParams.get("name");
   const newProductPrice = queryParams.get("price");
   const newProductDiscount = queryParams.get("discount");
   const newProductImage = queryParams.get("image");
-
 
   const newProduct = {
     id: Date.now(),
@@ -56,9 +55,6 @@ const Products = () => {
   };
 
   const updatedProducts = [newProduct, ...products];
-
- 
-  saveProductsToStorage(updatedProducts);
 
   return (
     <div className="product-container">

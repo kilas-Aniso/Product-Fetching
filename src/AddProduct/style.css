@@ -23,11 +23,11 @@
     width: 100%;
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: solid 1px rgb(250, 182, 56);
   }
   
   button {
-    background-color: #4caf50;
+    background-color: rgb(30, 203, 24);
     color: white;
     padding: 10px 16px;
     border: none;

@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: rgb(30, 203, 24);
+    place-items: center;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    font-size: 20px;
+    gap: 20%;
+    margin-left: 30%;
+    align-items: center;
+  }
+  
+  ul li {
+    display: flex;
+  }
+  
+  ul li a {
+    list-style: none;
+    text-decoration: none;
+    color: aliceblue;
+  }
+  
+  .logo-image {
+    max-height: 90px; 
+  }
+  nav :hover{
+    color: black;
+  }
+  

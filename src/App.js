@@ -1,5 +1,6 @@
 import { Routes, Route, BrowserRouter,} from 'react-router-dom';
-// import './App.css';
+import './App.css';
+import Navbar from './Navbar';
 import Login from './LogIn';
 import Products from './Products';
 import AddProduct from "./AddProduct";
@@ -7,6 +8,7 @@ import AddProduct from "./AddProduct";
 function App() {
   return (
     <div>
+      <Navbar/>
       <BrowserRouter>
   
         <Routes>
